@@ -1,0 +1,16 @@
+{
+  "catalog_url": "https://archive.stsci.edu/missions/tess/catalogs/toi/tois.csv",
+  "checked_date_utc": "2026-08-08",
+  "analysis_file": "tois_mast.csv",
+  "live_download_file": "tois_mast_current.csv",
+  "analysis_sha256": "6797d7ea49dedd95cf5a5711fe4c93553f218268d3ce68f9fbde569d8ff06a7e",
+  "live_sha256": "6797d7ea49dedd95cf5a5711fe4c93553f218268d3ce68f9fbde569d8ff06a7e",
+  "identical": true,
+  "catalog_header": [
+    "TESS Objects of Interest",
+    "File Created: 2026-03-14",
+    "Sectors: S0001-S0097",
+    "Date of previous TOI list release 2026-03-05"
+  ],
+  "note": "The live MAST endpoint served the same byte-for-byte catalog used for the completed analysis. The catalog header identifies the file as created 2026-03-14 and covering Sectors 1-97."
+}
