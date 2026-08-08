@@ -1,0 +1,89 @@
+{
+  "study_date": "2026-08-08",
+  "title": "Hard uncertainty-overlap labeling can overstate evidence for a radius-valley break in TESS multi-planet size similarity",
+  "data": {
+    "source": "MAST cumulative TESS Objects of Interest catalog",
+    "sha256": "6797d7ea49dedd95cf5a5711fe4c93553f218268d3ce68f9fbde569d8ff06a7e",
+    "raw_rows": 7913,
+    "catalog_created": "2026-03-14",
+    "sectors": "S0001-S0097"
+  },
+  "sample": {
+    "selected_pairs": 74,
+    "selected_systems": 58,
+    "selected_unique_planets": 132,
+    "pairs_by_type": {"G": 21, "K": 42, "M": 11}
+  },
+  "nominal": {
+    "n_valley_pairs": 10,
+    "n_valley_peas": 1,
+    "valley_peas_rate": 0.1,
+    "n_nonvalley_pairs": 64,
+    "n_nonvalley_peas": 16,
+    "nonvalley_peas_rate": 0.25,
+    "valley_null_rate": 0.09439613526570048,
+    "nonvalley_null_rate": 0.18807965551900588,
+    "enhancement_contrast_non_minus_valley": 0.0563164797466946,
+    "fisher_one_sided_p": 0.2729969128798577,
+    "mannwhitney_one_sided_p": 0.25585653354655397,
+    "permutation_p_contrast": 0.4192716145677087,
+    "cluster_bootstrap_contrast_95pct": [-0.2169431179339185, 0.249126890428715]
+  },
+  "overlap": {
+    "n_valley_pairs": 24,
+    "n_valley_peas": 2,
+    "valley_peas_rate": 0.08333333333333333,
+    "n_nonvalley_pairs": 50,
+    "n_nonvalley_peas": 15,
+    "nonvalley_peas_rate": 0.3,
+    "valley_null_rate": 0.15720460950080514,
+    "nonvalley_null_rate": 0.20395798273112245,
+    "enhancement_contrast_non_minus_valley": 0.16991329343634937,
+    "fisher_one_sided_p": 0.03265016953837952,
+    "mannwhitney_one_sided_p": 0.046469972829003274,
+    "permutation_p_contrast": 0.04577908441831163,
+    "cluster_bootstrap_contrast_95pct": [-0.022154373078336433, 0.34896829742442775]
+  },
+  "classification_inflation": {
+    "nominal_valley_pairs": 10,
+    "overlap_valley_pairs": 24,
+    "pair_inflation_factor": 2.4,
+    "nominal_valley_planets": 9,
+    "overlap_valley_planets": 31,
+    "planet_inflation_factor": 3.4444444444444446,
+    "overlap_only_planets": 22,
+    "expected_latent_valley_planets": 10.290637408114163,
+    "expected_latent_valley_pairs": 10.333686632009826,
+    "overlap_label_precision_expected": 0.3619080593174499,
+    "nominal_label_precision_expected": 0.44914930767959005,
+    "overlap_label_expected_sensitivity": 0.8405319159489041,
+    "nominal_label_expected_sensitivity": 0.4346457597120243
+  },
+  "measurement_error_monte_carlo": {
+    "normal": {"median_contrast": 0.03658657516132999, "contrast_95pct": [-0.2307551243194442, 0.22947253736545276], "median_valley_pairs": 10, "valley_pairs_95pct": [5, 16], "prob_contrast_gt_zero": 0.6251},
+    "lognormal": {"median_contrast": 0.03593367444847904, "contrast_95pct": [-0.22393204252038407, 0.22726768689053312], "median_valley_pairs": 10, "valley_pairs_95pct": [5, 16], "prob_contrast_gt_zero": 0.6173},
+    "normal_plus_center_uncertainty": {"median_contrast": 0.045510908633584604, "contrast_95pct": [-0.2241519848591555, 0.22990145564880965], "median_valley_pairs": 11, "valley_pairs_95pct": [5, 17], "prob_contrast_gt_zero": 0.6497649764976497}
+  },
+  "center_uncertainty_only": {
+    "median_contrast": 0.04618692869550996,
+    "contrast_95pct": [-0.07013651492880499, 0.16683687034266267],
+    "median_valley_pairs": 9,
+    "valley_pairs_95pct": [7, 12]
+  },
+  "power_diagnostic": {
+    "nominal_power_at_observed_rates": 0.11427184670887576,
+    "nominal_max_power_if_true_valley_rate_zero": 0.32557157024757716
+  },
+  "nonadjacent_overlap_placebo": {
+    "n_pairs": 28,
+    "n_valley_pairs": 13,
+    "n_valley_peas": 0,
+    "n_nonvalley_pairs": 15,
+    "n_nonvalley_peas": 7,
+    "enhancement_contrast_non_minus_valley": 0.3624775224775225,
+    "fisher_one_sided_p": 0.005434782608695652,
+    "permutation_p_contrast": 0.00001999960000799984,
+    "cluster_bootstrap_contrast_95pct": [0.0996060090702948, 0.6009506833036246]
+  },
+  "conclusion": "Current TESS data do not independently confirm or refute the reported Kepler astrophysical effect. Hard 1-sigma interval-overlap classification substantially expands valley labels and produces stronger-looking evidence than direct probabilistic propagation of the same radius uncertainties supports."
+}
