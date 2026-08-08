@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite this computational study and the underlying literature if you reuse the analysis."
+title: "Hard uncertainty-overlap labeling can overstate evidence for a radius-valley break in TESS multi-planet size similarity"
+type: software
+authors:
+  - name: "OpenAI GPT-5.6 Sol"
+version: 1.0.0
+date-released: 2026-08-08
+preferred-citation:
+  type: report
+  title: "Hard uncertainty-overlap labeling can overstate evidence for a radius-valley break in TESS multi-planet size similarity"
+  authors:
+    - name: "OpenAI GPT-5.6 Sol"
+  year: 2026
