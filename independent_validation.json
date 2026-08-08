@@ -1,0 +1,36 @@
+{
+  "n_pairs": 74,
+  "duplicate_edges": 0,
+  "nominal": {
+    "n_valley_pairs": 10,
+    "n_valley_peas": 1,
+    "valley_rate": 0.1,
+    "n_nonvalley_pairs": 64,
+    "n_nonvalley_peas": 16,
+    "nonvalley_rate": 0.25,
+    "raw_difference": 0.15,
+    "fisher_one_sided_p": 0.2729969128798577
+  },
+  "overlap": {
+    "n_valley_pairs": 24,
+    "n_valley_peas": 2,
+    "valley_rate": 0.08333333333333333,
+    "n_nonvalley_pairs": 50,
+    "n_nonvalley_peas": 15,
+    "nonvalley_rate": 0.3,
+    "raw_difference": 0.21666666666666667,
+    "fisher_one_sided_p": 0.03265016953837952
+  },
+  "analytic_expected_latent_valley_pairs": 10.333686632009826,
+  "all_period_ratios_gt_one": true,
+  "all_frac_errors_within_primary_cut": true,
+  "all_radii_within_primary_range": true,
+  "checks": {
+    "nominal_counts_match": true,
+    "overlap_counts_match": true,
+    "nominal_fisher_matches": true,
+    "overlap_fisher_matches": true,
+    "analytic_expected_matches": true
+  },
+  "all_checks_pass": true
+}
