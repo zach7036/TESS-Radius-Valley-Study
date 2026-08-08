@@ -26,7 +26,7 @@ The primary sample contains **74 period-adjacent pairs in 58 systems** (132 uniq
 
 ## Why the hard-overlap rule matters
 
-The apparent hard-overlap replication is fragile because the rule changes the effective radius window for each object:
+The overlap rule obeys:
 
 ```text
 [r - σ, r + σ] intersects [c - w, c + w]
@@ -34,7 +34,7 @@ The apparent hard-overlap replication is fragile because the rule changes the ef
 |r - c| <= w + σ
 ```
 
-Larger measurement uncertainties therefore make a planet *more likely* to receive the binary “in-valley” label. In this sample the overlap rule labels **24 adjacent pairs**, while the reported uncertainty model implies only **10.33 expected latent valley-inclusive pairs**. The estimated positive predictive value of the overlap labels is **36.2%**.
+Larger measurement uncertainties therefore make a planet *more likely* to receive the binary “in-valley” label. In this sample it labels **24 adjacent pairs**, while the reported uncertainty model implies only **10.33 expected latent valley-inclusive pairs**. The estimated expected positive predictive value of those overlap labels is **36.2%**.
 
 When radius uncertainty is propagated directly rather than collapsed into binary overlap labels, the evidence for a similarity break disappears.
 
@@ -48,18 +48,30 @@ A result-specific literature search through August 8, 2026 did not identify a pr
 
 ## Read the study
 
-- [`report.md`](report.md) — complete scientific paper in Markdown
-- [`summary.json`](summary.json) — machine-readable statistical results
-- [`search_log.md`](search_log.md) — literature/novelty search record
+- [`report.md`](report.md) — complete paper index
+- [`paper/`](paper/) — seven ordered sections containing the full scientific report
+- [`summary.json`](summary.json) — machine-readable principal statistics
+- [`search_log.md`](search_log.md) — literature and novelty-search record
+- [`figures/`](figures/) — five vector figures
 
 ## Reproduce the analysis
 
-The analysis code is fully included:
+The exact analysis source is included. Because the connected publishing interface has per-file transport constraints, the original script is stored byte-for-byte in six ordered chunks under [`analysis_parts/`](analysis_parts/); [`tess_valley_analysis.py`](tess_valley_analysis.py) executes those chunks in the original order. Recombining the six chunks gives SHA-256:
 
-- [`tess_valley_analysis.py`](tess_valley_analysis.py) — primary pipeline
-- [`independent_validation.py`](independent_validation.py) — independently written validation implementation
+```text
+3e91c9eff0d0099f3607391f36155c8248c5223ecdb23056329b62cf4b04d6a3
+```
+
+That is identical to the original completed analysis script used for this study.
+
+Other reproducibility files:
+
+- [`independent_validation.py`](independent_validation.py) — separately written validation implementation
+- [`independent_validation.json`](independent_validation.json) — validation output; all audited checks pass
+- [`tables/primary_adjacent_pairs.csv`](tables/primary_adjacent_pairs.csv) — the 74-pair primary analysis dataset needed by the independent validator
 - [`requirements.txt`](requirements.txt) — pinned dependencies
-- [`live_endpoint_check.json`](live_endpoint_check.json) — provenance and snapshot checksum
+- [`live_endpoint_check.json`](live_endpoint_check.json) — provenance and checksum verification
+- [`download_data.py`](download_data.py) — downloads the public MAST source catalog and checks whether it matches the original study snapshot
 
 The source data are the public cumulative **TESS Objects of Interest** catalog from MAST. Download it to `tois_mast.csv`:
 
@@ -67,13 +79,13 @@ The source data are the public cumulative **TESS Objects of Interest** catalog f
 python download_data.py
 ```
 
-The study used a byte-for-byte catalog with SHA-256:
+The exact catalog used in the study has SHA-256:
 
 ```text
 6797d7ea49dedd95cf5a5711fe4c93553f218268d3ce68f9fbde569d8ff06a7e
 ```
 
-The MAST file served on August 8, 2026 matched this hash and identified itself as created March 14, 2026, covering TESS Sectors 1–97. If the live catalog changes, `download_data.py` will warn that the result is an **updated replication**, not an exact rerun of the frozen snapshot.
+The MAST file served on August 8, 2026 matched this hash and identified itself as created March 14, 2026, covering TESS Sectors 1–97. If the live catalog changes, `download_data.py` warns that the run is an **updated replication**, not an exact rerun of the frozen snapshot.
 
 Then run:
 
@@ -95,25 +107,11 @@ python independent_validation.py
 
 Fixed random seed: `20260808`.
 
-## Included derived data
-
-The `tables/` directory contains the core pair-level samples, classification comparisons, robustness grid, center placebo scan, leave-one-system-out results, and power curves. Large Monte Carlo/permutation draw files are intentionally not required for version control because the included scripts deterministically regenerate them from the stated seed and inputs.
+The main pipeline deterministically regenerates the complete cleaned tables, robustness grid, center scan, bootstrap/permutation samples, measurement-error simulations, summary, and publication figures from the public input and fixed seed. Large Monte Carlo draw files are intentionally regenerated rather than committed.
 
 ## Validation and falsification tests
 
-The study includes:
-
-- graph-preserving permutations
-- system-cluster bootstrapping
-- leave-one-system-out analysis
-- Gaussian measurement-error propagation
-- lognormal error-model sensitivity testing
-- radius-valley-center uncertainty propagation
-- quality-threshold grids
-- confirmed-planets-only sensitivity checks
-- alternative valley widths
-- nonadjacent-pair placebos
-- independent implementation of the core result
+The study includes graph-preserving permutations, system-cluster bootstrapping, leave-one-system-out analysis, Gaussian and lognormal measurement-error propagation, radius-valley-center uncertainty propagation, quality-threshold grids, confirmed-planets-only sensitivity checks, alternative valley widths, nonadjacent-pair placebos, and an independent implementation of the primary counts and latent-membership calculation.
 
 ## Limitations
 
